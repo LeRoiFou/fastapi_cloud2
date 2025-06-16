@@ -1,0 +1,51 @@
+# ================================================================
+# Ce fichier évite de trop charger la taille de l'image Docker et 
+# de déployer des fichiers sensibles / inutiles
+
+#                               !!! 
+# ATTENTION éviter de renseigner en données temporaires les 
+# fichiers de type .txt tels que requirements.txt, sinon si 
+# on rebuild par docker notre application, il y aura une erreur
+#                               !!! 
+# ================================================================
+
+# === Python cache files ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.egg-info/
+
+# === Environnements virtuels ===
+venv/
+.env
+.env.*
+
+# === Fichiers système et IDE ===
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+
+# === Git ===
+.git/
+.gitignore
+
+# === Docs et fichiers temporaires ===
+*.md
+*.zip
+*.tar
+*.bak
+
+# === Données temporaires ===
+*.db
+*.sqlite
+*.xls
+*.xlsx
+*.csv
+
+# === Autres fichiers perso/OS ===
+*.swp
+*~
