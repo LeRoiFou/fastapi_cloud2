@@ -104,21 +104,25 @@ async def unique_cookie_middleware(request: Request, call_next):
     if cookie_token:
         try:
             token = signatory.unsign(
-                cookie_token, max_age=60*60*24).decode()  # 1 jour de validité
+                cookie_token, max_age=60*60*24).decode() # validité pour 24 heures
             if token in used_tokens:
                 return RedirectResponse(url="/access-denied")
+            else:
+                save_token(token)
         except BadSignature:
             return RedirectResponse(url="/access-denied")
     else:
-        # Création d’un token unique
+        # Génération d’un nouveau token pour l’utilisateur
         token = str(uuid.uuid4())
         signed_token = signatory.sign(token).decode()
+        save_token(token)  # <-- ENREGISTRER le token dès la première visite
+
+        # Génère la réponse et y ajoute le cookie
         response = await call_next(request)
         response.set_cookie(key="access_token", value=signed_token, httponly=True)
         return response
-    
-    # Cookie correct mais jamais utilisé → on le marque utilisé en le sauvegardant
-    save_token(token)
+
+    # Si le cookie est valide et jamais vu, continuer normalement
     response = await call_next(request)
     return response
 
