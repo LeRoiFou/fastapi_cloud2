@@ -1,0 +1,31 @@
+body{
+    background-color: teal;
+    text-align: center;
+    font-family: "Limelight", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h2{
+    color: yellowgreen;
+    font-weight: bold;
+}
+
+p{
+    font-weight: bold;
+}
+
+input[type='checkbox']{
+    width: 50px;
+}
+
+button{
+    background-color: #45a049;
+    border-radius: 20px;
+    width: 200px;
+    padding: 10px 0px;
+    margin: 20px;
+    font-family: "Limelight", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}

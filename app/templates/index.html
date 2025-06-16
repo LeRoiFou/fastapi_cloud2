@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Titre de l'onglett -->
+    <title>Homer 🍺</title>
+
+    <!-- Lien fichier CSS -->
+    <link rel="stylesheet" href="static/style.css">
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Titre de la page @ -->
+    <H2>Homer Simpson</H2>
+
+    <!-- Question -->
+    <p>Quel est le gâteau favori d'Homer Simpson ?</p>
+
+    <!-- Route "/"" -->
+    <form action="/homer" method="post">
+
+        <!-- Choix -->
+        <input type="checkbox" name="donuts">
+        <label>Donuts</label><br><br>
+        <input type="checkbox" name="paris">
+        <label>Paris Brest</label><br><br>
+
+        <!-- Bouton d'exécution -->
+        <button type="submit">Valider</button>
+    </form>
+
+    <!-- Message à afficher -->
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+</body>
+
+</html>
