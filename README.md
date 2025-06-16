@@ -29,4 +29,6 @@ et saisir ceci dans l'URL d'une page @ pour tester la validité de l'application
 
 - Pour Docker, rebuild à nouveau l'image : <br>
   `docker build -t fastapi-cloud2 .`
-- Pour render, commit à nouveau sur Github le projet modifié
+- Pour render :
+  - Commit à nouveau sur Github le projet modifié
+  - Sur render cliquer sur "Manual Deploy" → puis "Deploy latest commit"
